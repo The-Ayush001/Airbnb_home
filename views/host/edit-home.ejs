@@ -1,0 +1,30 @@
+<%- include('../../partials/head.ejs') %>
+  </head>
+
+  <body class="bg-black min-h-screen flex flex-col items-center justify-center">
+    <div class="absolute top-0 left-0 w-full"><%- include('../../partials/nav.ejs') %></div>
+
+    <h1 class="text-3xl font-bold text-gray-100 mb-8"><%= editing ? "Edit" : "Register"%> your home here:</h1>
+    <form action="/host/<%= editing ? "edit-home": "add-home"%>" method="POST" class="w-full max-w-md">
+      <input type="hidden" name="id" value="<%= editing ? home.id : ''%>">
+      <input class="w-full bg-gray-100 px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:border-blue-500"
+        type="text" name="homeName" value="<%= editing ? home.homeName : '' %>" placeholder="Enter the name of your house" />
+
+      <input type="text" name="Price" value="<%= editing ? home.Price : '' %>" placeholder="Price per night"
+        class=" w-full bg-gray-100 px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:border-blue-900" />
+
+      <input type="text" name="Location" value="<%= editing ? home.Location : '' %>" placeholder="Location"
+        class=" w-full bg-gray-100 px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:border-blue-900" />
+
+      <input type="text" name="Rating" value="<%= editing ? home.Rating : '' %>" placeholder="Rating"
+        class=" w-f24155151028ull bg-gray-100 px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:border-blue-900" />
+
+      <input type="text" name="PhotoURL" value="<%= editing ? home.PhotoURL : '' %>" placeholder="Enter Photo URL"
+        class=" w-full bg-gray-100 px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:border-blue-900" />
+
+      <input type="submit" value="<%= editing ? "Update Home" : "Add Home"%>"
+        class="w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200" />
+    </form>
+  </body>
+
+  </html>

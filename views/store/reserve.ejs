@@ -1,0 +1,44 @@
+<%- include('../../partials/head.ejs') %>
+</head>
+<body class="bg-black">
+  <%- include('../../partials/nav.ejs') %>
+  <main class="container mx-auto bg-gray-800 shadow-xl rounded-2xl p-10 mt-12 max-w-4xl">
+    <h1 class="text-5xl text-gray-100 font-bold text-center mb-8">Here are our register home:</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <% registeredHomes.forEach(home => { %>
+      <div class="bg-gray-200 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+        <img src="https://a0.muscache.com/im/pictures/miso/Hosting-29355411/original/1d6d202e-a2e6-4dbf-a590-d8f927d4c7c8.jpeg?im_w=720" alt="<%= home.homeName %>" class="w-full h-60 object-cover">
+        <div class="px-6 py-2">
+        <h2 class="text-2xl font-bold text-gray-800 mb-2"><%= home.homeName %></h2>
+        <div class="space-y-2">
+          <p class="text-red-500 text-xl font-semibold">₹<%= home.Price %> / night</p>
+          <p class=" relative text-gray-600">
+          <i class="fas fa-map-marker-alt mr-2"></i>
+          <%= home.Location %>
+          <button class=" absolute left-3/4 text-lg bg-red-600 px-2 py-1 rounded-lg text-black font-semibold">Book</button>
+        </p>
+          <div class="flex items-center">
+          <i class="fas fa-star text-yellow-400 mr-1"></i>
+          <span class="text-gray-700"><span class="text-yellow-400 text-xl">★</span><%= home.Rating %>/5</span>
+          </div>
+        </div>
+      </div>
+    </div>
+      <% }) %>
+    </div>
+
+    <div class="mt-10 text-center">
+      <a href="/host/add-home" 
+         class="inline-block px-6 py-3 rounded-xl 
+                bg-red-500 text-white font-semibold shadow-md
+                hover:bg-red-600 hover:shadow-lg 
+                transition-all duration-300">
+        ➕ Add Home
+      </a>
+    </div>
+  </main>
+</body>
+
+</body>
+</html>
